@@ -1,7 +1,5 @@
 vim.o.number = true
-
 vim.o.mouse = 'a'
-
 vim.o.showmode = false
 
 vim.schedule(function()

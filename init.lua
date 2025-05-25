@@ -15,5 +15,3 @@ require("lazy").setup({
   install = { colorscheme = { 'onenord' } },
   checker = { enabled = false },
 })
-
-require('oil').setup()
