@@ -1,4 +1,4 @@
-vim.vim.o.number = true
+vim.o.number = true
 
 vim.o.mouse = 'a'
 
@@ -28,4 +28,6 @@ vim.o.inccommand = 'split'
 vim.o.cursorline = true
 vim.o.scrolloff = 8
 vim.o.confirm = true
-vim.o.noswapfile = true
+vim.o.swapfile = false
+
+vim.cmd('cabbrev h tab h')
