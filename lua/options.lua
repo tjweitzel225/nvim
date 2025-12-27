@@ -2,7 +2,7 @@ vim.o.number = true
 vim.o.mouse = 'a'
 vim.o.showmode = false
 vim.o.clipboard = 'unnamedplus'
-vim.o.winborder = "rounded"
+vim.o.winborder = 'rounded'
 vim.o.undofile = true
 
 vim.o.ignorecase = true

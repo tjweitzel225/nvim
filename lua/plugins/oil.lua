@@ -6,7 +6,7 @@ return {
   -- Optional dependencies
   dependencies = { { "echasnovski/mini.icons", opts = {} } },
   keys = {
-	  {'<leader>e', '<cmd>Oil --float<cr>'},
+      {'<leader>e', '<cmd>Oil --float --preview<cr>'},
   },
   lazy = false,
 }
