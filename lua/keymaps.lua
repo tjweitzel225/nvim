@@ -1,10 +1,12 @@
-vim.keymap.set('i', 'jk', '<Esc>')
-vim.keymap.set('i', 'kj', '<Esc>')
+local map = vim.keymap.set
 
-vim.keymap.set('n', ']b', '<cmd>bn<cr>')
-vim.keymap.set('n', '[b', '<cmd>bp<cr>')
+map({'i', 'v'}, 'jk', '<Esc>')
+map({'i', 'v'}, 'kj', '<Esc>')
 
-vim.keymap.set('n', '<C-u>', '<C-u>zz')
-vim.keymap.set('n', '<C-d>', '<C-d>zz')
-vim.keymap.set('n', 'n', 'nzzzv')
-vim.keymap.set('n', 'N', 'Nzzzv')
+map('n', ']b', '<cmd>bn<cr>')
+map('n', '[b', '<cmd>bp<cr>')
+
+map('n', '<C-u>', '<C-u>zz')
+map('n', '<C-d>', '<C-d>zz')
+map('n', 'n', 'nzzzv')
+map('n', 'N', 'Nzzzv')

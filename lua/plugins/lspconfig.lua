@@ -6,13 +6,13 @@ return {
   },
 
   config = function()
-    local lspconfig = require("lspconfig")
     local mason = require("mason")
 
     mason.setup()
 
-    lspconfig.rust_analyzer.setup({})
-    lspconfig.basedpyright.setup({})
+    vim.lsp.enable({})
+    vim.lsp.config('rust_analyzer', { cmd = { 'rust-analyzer' } })
+    -- vim.basedpyright.setup({})
 
   end,
 }
