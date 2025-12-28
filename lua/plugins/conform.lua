@@ -7,6 +7,7 @@ end, {})
 
 return {
     'stevearc/conform.nvim',
+    lazy = false,
     opts = {
         lazy = true,
         formatters_by_ft = {

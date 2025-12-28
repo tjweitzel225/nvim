@@ -1,3 +1,5 @@
+vim.g.autoformat = true
+
 vim.o.number = true
 vim.o.mouse = 'a'
 vim.o.showmode = false
@@ -26,11 +28,11 @@ vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
 
 vim.o.foldmethod = 'indent'
 vim.opt.fillchars = {
-    fold = " ",       -- character for the fold column filler (the dots/bars)
-    foldopen = "▾",   -- character for an open fold indicator
-    foldclose = "▸",  -- character for a closed fold indicator
-    foldsep = "│",    -- character for the separator line
-    eob = " ",        -- character at the end of the buffer (~ symbols)
+    fold = ' ', -- character for the fold column filler (the dots/bars)
+    foldopen = '▾', -- character for an open fold indicator
+    foldclose = '▸', -- character for a closed fold indicator
+    foldsep = '│', -- character for the separator line
+    eob = ' ', -- character at the end of the buffer (~ symbols)
 }
 vim.o.foldlevel = 99
 
@@ -41,7 +43,6 @@ vim.o.confirm = true
 vim.o.swapfile = false
 
 vim.cmd('cabbrev h tab h')
-vim.g.autoformat= true
 
-vim.diagnostic.config({ virtual_lines = false })
-vim.diagnostic.config({ virtual_text = true })
+vim.diagnostic.config { virtual_lines = false }
+vim.diagnostic.config { virtual_text = true }

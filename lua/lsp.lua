@@ -1,6 +1,7 @@
 local lsps = {
     'ty',
     'ruff',
-    'lua_ls'
+    'lua_ls',
+    'rust_analyzer'
 }
 vim.lsp.enable(lsps)
