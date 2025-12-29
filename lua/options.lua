@@ -1,4 +1,15 @@
 vim.g.autoformat = true
+vim.o.autoread = true
+
+-- Trigger checktime when Neovim gains focus, enters a buffer/window, or cursor is idle
+vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI' }, {
+    pattern = { '*' },
+    callback = function()
+        if vim.fn.mode() ~= 'c' then -- Only run if not in command mode
+            vim.cmd('silent! checktime')
+        end
+    end,
+})
 
 vim.o.number = true
 vim.o.mouse = 'a'
@@ -46,3 +57,5 @@ vim.cmd('cabbrev h tab h')
 
 vim.diagnostic.config { virtual_lines = false }
 vim.diagnostic.config { virtual_text = true }
+
+vim.lsp.inlay_hint.enable(true, { bufnr = 0 })

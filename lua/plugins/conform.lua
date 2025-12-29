@@ -12,7 +12,7 @@ return {
         lazy = true,
         formatters_by_ft = {
             lua = { 'stylua', lsp_format = 'fallback' },
-            python = { 'ruff' },
+            python = { 'ruff_organize_imports', 'ruff_format', lsp_format = 'fallback' },
             rust = { 'rustfmt', lsp_format = 'fallback' },
         },
         format_on_save = function(bufnr)
@@ -27,6 +27,7 @@ return {
             function()
                 require('conform').format { async = true, lsp_format = 'fallback' }
             end,
+            desc = 'Format buffer',
         },
         { '<leader>uf', '<cmd>FormatToggle<cr>', desc = 'Toggle autoformat-on-save' },
     },
