@@ -1,7 +1,12 @@
 return {
     'saghen/blink.cmp',
     -- optional: provides snippets for the snippet source
-    dependencies = { 'rafamadriz/friendly-snippets', 'xzbdmw/colorful-menu.nvim' },
+    dependencies = {
+        'rafamadriz/friendly-snippets',
+        'xzbdmw/colorful-menu.nvim',
+        'bydlw98/blink-cmp-env',
+        'mikavilpas/blink-ripgrep.nvim',
+    },
     opts = {
         -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
         -- 'super-tab' for mappings similar to vscode (tab to accept)
@@ -25,9 +30,9 @@ return {
             enabled = true,
             trigger = {
                 show_on_keyword = true,
-                show_on_trigger_character = true,
-                show_on_insert = true,
-                show_on_insert_on_trigger_character = true,
+                -- show_on_trigger_character = true,
+                -- show_on_insert = true,
+                -- show_on_insert_on_trigger_character = true,
             },
         },
 
@@ -57,7 +62,22 @@ return {
         -- Default list of enabled providers defined so that you can extend it
         -- elsewhere in your config, without redefining it, due to `opts_extend`
         sources = {
-            default = { 'lsp', 'path', 'snippets', 'buffer' },
+            default = { 'lsp', 'path', 'snippets', 'buffer', 'env', 'ripgrep' },
+            providers = {
+                ripgrep = {
+                    module = 'blink-ripgrep',
+                    name = 'ripgrep',
+                    opts = {},
+                },
+                env = {
+                    module = 'blink-cmp-env',
+                    name = 'Env',
+                    opts = {
+                        show_braces = false,
+                        show_documentation_window = false,
+                    },
+                },
+            },
         },
 
         -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance

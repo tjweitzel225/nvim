@@ -1,5 +1,11 @@
 vim.g.autoformat = true
 vim.o.autoread = true
+vim.api.nvim_create_autocmd('TextYankPost', {
+    callback = function()
+        vim.hl.on_yank()
+    end,
+    pattern = '*',
+})
 
 -- Trigger checktime when Neovim gains focus, enters a buffer/window, or cursor is idle
 vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI' }, {

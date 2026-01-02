@@ -5,7 +5,7 @@ return {
     dependencies = { { 'echasnovski/mini.icons', opts = {} } },
     keys = {
         {
-            '<leader>e',
+            '<leader>f',
             function()
                 local oil = require('oil')
                 if vim.w.is_oil_win then
@@ -17,7 +17,7 @@ return {
             desc = 'Open Oil',
         },
         {
-            '<leader>E',
+            '<leader>F',
             function()
                 local oil = require('oil')
                 if vim.w.is_oil_win then
