@@ -2,11 +2,21 @@ return {
     'Olical/conjure',
     ft = { 'clojure', 'python' },
     lazy = false,
+    keys = {
+        {
+            '<leader>cR',
+            function()
+                vim.cmd.normal(' cS')
+                vim.cmd.normal(' cq')
+            end,
+            desc = 'Restart REPL',
+        },
+    },
     init = function()
         local settings = {
             ['mapping#prefix'] = ' ',
             ['mapping#enable_defaults'] = false,
-            ['mapping#log_vsplit'] = 'll',
+            ['mapping#log_toggle'] = 'll',
             ['mapping#log_buf'] = 'lL',
             ['mapping#log_reset_soft'] = 'lc',
             ['mapping#log_reset_hard'] = 'lC',
@@ -21,11 +31,13 @@ return {
             ['mapping#eval_file'] = 'ef',
             ['mapping#eval_buf'] = 'eb',
             ['mapping#eval_visual'] = 'e',
+            ['mapping#eval_motion'] = 'e',
             ['highlight#enabled'] = true,
             ['highlight#timeout'] = 200,
-            ['log#botright'] = true,
             ['log#break_length'] = 40,
-            -- ['client_on_load'] = false,
+            ['client_on_load'] = true,
+            ['client#python#stdio#mapping#start'] = 'cq',
+            ['client#python#stdio#mapping#stop'] = 'cS',
         }
         for i, v in pairs(settings) do
             vim.g['conjure#' .. i] = v
