@@ -1,12 +1,17 @@
 return {
     'saghen/blink.cmp',
     -- optional: provides snippets for the snippet source
-    dependencies = {
-        'rafamadriz/friendly-snippets',
-        'xzbdmw/colorful-menu.nvim',
-        'bydlw98/blink-cmp-env',
-        'mikavilpas/blink-ripgrep.nvim',
-    },
+    dependencies = { 'rafamadriz/friendly-snippets' },
+
+    -- use a release tag to download pre-built binaries
+    version = '1.*',
+    -- AND/OR build from source
+    -- build = 'cargo build --release',
+    -- If you use nix, you can build from source with:
+    -- build = 'nix run .#build-plugin',
+
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
     opts = {
         -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
         -- 'super-tab' for mappings similar to vscode (tab to accept)
@@ -21,63 +26,20 @@ return {
         --
         -- See :h blink-cmp-config-keymap for defining your own keymap
         keymap = { preset = 'enter' },
+
         appearance = {
             -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
             -- Adjusts spacing to ensure icons are aligned
             nerd_font_variant = 'mono',
         },
-        signature = {
-            enabled = true,
-            trigger = {
-                show_on_keyword = true,
-                -- show_on_trigger_character = true,
-                -- show_on_insert = true,
-                -- show_on_insert_on_trigger_character = true,
-            },
-        },
 
         -- (Default) Only show the documentation popup when manually triggered
-        completion = {
-            documentation = { auto_show = true, window = { scrollbar = false } },
-            ghost_text = { enabled = true },
-            menu = {
-                scrollbar = false,
-                draw = {
-                    treesitter = { 'lsp' },
-                    columns = { { 'kind_icon' }, { 'label', gap = 1 } },
-                    components = {
-                        label = {
-                            text = function(ctx)
-                                return require('colorful-menu').blink_components_text(ctx)
-                            end,
-                            highlight = function(ctx)
-                                return require('colorful-menu').blink_components_highlight(ctx)
-                            end,
-                        },
-                    },
-                },
-            },
-        },
+        completion = { documentation = { auto_show = false } },
 
         -- Default list of enabled providers defined so that you can extend it
         -- elsewhere in your config, without redefining it, due to `opts_extend`
         sources = {
-            default = { 'lsp', 'path', 'snippets', 'buffer', 'env', 'ripgrep' },
-            providers = {
-                ripgrep = {
-                    module = 'blink-ripgrep',
-                    name = 'ripgrep',
-                    opts = {},
-                },
-                env = {
-                    module = 'blink-cmp-env',
-                    name = 'Env',
-                    opts = {
-                        show_braces = false,
-                        show_documentation_window = false,
-                    },
-                },
-            },
+            default = { 'lsp', 'path', 'buffer' },
         },
 
         -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance

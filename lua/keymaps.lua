@@ -34,3 +34,13 @@ end, { desc = 'Jump to last diagnostic' })
 map('n', '[D', function()
     jump_to_diagnostic(-math.huge)
 end, { desc = 'Jump to first diagnostic' })
+
+map('n', '<CR>', ':normal van<CR>', {
+    desc = 'TS Select: Init Node',
+})
+map('x', '<CR>', function()
+    vim.api.nvim_feedkeys('an', 'v', false)
+end, { desc = 'TS Select: Expand Node' })
+map('x', '<BS>', function()
+    vim.api.nvim_feedkeys('in', 'v', false)
+end, { desc = 'TS Select: Shrink Node' })

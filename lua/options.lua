@@ -1,5 +1,6 @@
 vim.g.autoformat = true
 vim.o.autoread = true
+vim.o.wrap = false
 vim.api.nvim_create_autocmd('TextYankPost', {
     callback = function()
         vim.hl.on_yank()
@@ -43,7 +44,8 @@ vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
 
-vim.o.foldmethod = 'indent'
+vim.o.foldmethod = 'expr'
+vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 vim.opt.fillchars = {
     fold = ' ', -- character for the fold column filler (the dots/bars)
     foldopen = '▾', -- character for an open fold indicator
@@ -65,3 +67,18 @@ vim.diagnostic.config { virtual_lines = false }
 vim.diagnostic.config { virtual_text = true }
 
 vim.lsp.inlay_hint.enable(true, { bufnr = 0 })
+
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = { '*' },
+    callback = function()
+        local filetype = vim.bo.filetype
+        if filetype and filetype ~= '' then
+            local success = pcall(function()
+                vim.treesitter.start()
+            end)
+            if not success then
+                return
+            end
+        end
+    end,
+})
