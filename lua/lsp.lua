@@ -1,5 +1,6 @@
 local lsps = {
-    'ty',
+    'pyrefly',
+    -- 'ty',
     'ruff',
     'lua_ls',
 }

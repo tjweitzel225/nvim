@@ -6,4 +6,17 @@ return {
     -- This plugin implements proper lazy-loading (see :h lua-plugin-lazy).
     -- No need for lazy.nvim to lazy-load it.
     lazy = false,
+    init = function()
+        vim.g.rustaceanvim = {
+            server = {
+                settings = {
+                    ['rust-analyzer'] = {
+                        procMacro = {
+                            enable = true,
+                        },
+                    },
+                },
+            },
+        }
+    end,
 }

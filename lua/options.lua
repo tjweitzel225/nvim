@@ -42,7 +42,6 @@ vim.o.splitbelow = true
 
 vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
-vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
 
 vim.o.foldmethod = 'expr'
 vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'

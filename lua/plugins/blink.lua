@@ -40,6 +40,9 @@ return {
         -- elsewhere in your config, without redefining it, due to `opts_extend`
         sources = {
             default = { 'lsp', 'path', 'buffer' },
+            per_filetype = {
+                opencode_ask = { 'lsp', 'path', 'buffer' },
+            },
         },
 
         -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
