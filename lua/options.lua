@@ -65,7 +65,7 @@ vim.cmd('cabbrev h tab h')
 vim.diagnostic.config { virtual_lines = false }
 vim.diagnostic.config { virtual_text = true }
 
-vim.lsp.inlay_hint.enable(true, { bufnr = 0 })
+vim.lsp.inlay_hint.enable(true)
 
 vim.api.nvim_create_autocmd('FileType', {
     pattern = { '*' },
